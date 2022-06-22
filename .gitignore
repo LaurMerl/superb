@@ -1,0 +1,37 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# If you change this, please also change this in .prettierignore
+
+# compiled output
+dist
+
+# dependencies
+node_modules
+
+# compodoc
+documentation
+
+# IDEs and editors
+.idea
+.project
+.classpath
+.c9/
+*.launch
+*.orig
+.settings/
+*.sublime-workspace
+.vs
+.history/*
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Test results
+junit.xml
+
+
+# log files
+startup-error.txt
+startup-logs.txt
+/.eslintcache

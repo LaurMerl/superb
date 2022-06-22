@@ -1,0 +1,83 @@
+## Ignores in addition to .gitignore
+
+.yarn
+**/__files/*
+**/*lint.*
+
+**/*config*.js
+**/test-coverage/**/*
+package.json
+manifest.json
+**/*.md
+**/*.min.*
+**/*.d.ts
+
+**/__snapshots__/*
+**/*.snap
+
+generated
+
+## Contents of all the .gitignore files. If we don't commit stuff, then there is no point in formatting it.
+
+## root .gitignore
+
+# compiled output
+dist
+tmp
+out-tsc
+output
+
+
+# dependencies
+node_modules
+
+# compodoc
+documentation
+
+# IDEs and editors
+.idea
+.project
+.classpath
+.c9/
+*.launch
+*.orig
+.settings/
+*.sublime-workspace
+.vscode
+.vs
+.history/*
+
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# SonarQube
+.sonar/
+.scannerwork/
+.sonarlint/
+
+coverage
+!libs/mocks/**/coverage/
+reporting
+report.json
+test-report.xml
+sonar-project.properties
+
+# misc
+.nvmrc
+.sass-cache
+connect.lock
+libpeerconnection.log
+npm-debug.log
+testem.log
+typings
+
+# System Files
+.DS_Store
+Thumbs.db
+package-lock.json
+
