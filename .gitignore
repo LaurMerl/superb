@@ -21,6 +21,7 @@ documentation
 .settings/
 *.sublime-workspace
 .vs
+.vscode/*
 .history/*
 
 # System Files
