@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Param, Put } from '@nestjs/common';
 import { IResponse } from 'src/response.dto';
-import { TablesDto } from './models/restaurant.dto';
-import { Tables } from './models/restaurant.interfaces';
+import { OpeningTimesDto, TablesDto } from './models/restaurant.dto';
+import { OpeningTimes, Tables } from './models/restaurant.interfaces';
 import { RestaurantService } from './restaurant.service';
 
 @Controller('restaurants')
@@ -39,5 +39,26 @@ export class RestaurantController {
     @Param('restaurantId') restaurantId: string
   ): Promise<IResponse<TablesDto>> {
     return { data: await this.restaurantService.getTables(restaurantId) };
+  }
+
+  @Put('/:restaurantId/openings')
+  async setRestaurantTime(
+    @Param('restaurantId') restaurantId: string,
+    @Body() body: OpeningTimes
+  ): Promise<IResponse<OpeningTimesDto>> {
+    const blah = await this.restaurantService.setOpeningTimes(
+      restaurantId,
+      body
+    );
+    return {
+      data: blah,
+    };
+  }
+
+  @Get('/:restaurantId/openings')
+  async getRestaurantTimes(
+    @Param('restaurantId') restaurantId: string
+  ): Promise<IResponse<OpeningTimesDto>> {
+    return { data: await this.restaurantService.getOpeningTimes(restaurantId) };
   }
 }
