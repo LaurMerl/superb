@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Param } from '@nestjs/common';
 import { Restaurant } from './restaurant/models/restaurant.schema';
 import { RestaurantService } from './restaurant/restaurant.service';
 

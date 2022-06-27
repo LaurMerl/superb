@@ -4,20 +4,6 @@ import supertest from 'supertest';
 import { RestaurantController } from './restaurant.controller';
 import { RestaurantService } from './restaurant.service';
 
-const openingTimesMock = {
-  monday: {
-    lunch: {
-      from: '09:00:00',
-      to: '11:00:00',
-    },
-    dinner: {
-      from: '17:30:00',
-      to: '22:00:00',
-    },
-  },
-  tuesday: undefined,
-};
-
 const mockedRestaurantService = {
   getOpeningTimes: jest.fn(),
   getTables: jest.fn(),
@@ -92,6 +78,21 @@ describe('RestaurantController', () => {
         data: {
           updatedNumberOfTables: 5,
         },
+      });
+  });
+
+  it('should error if no id is specified in URL', () => {
+    mockedRestaurantService.setRemoveTables.mockReturnValue({
+      updatedNumberOfTables: 5,
+    });
+
+    return supertest(app.getHttpServer())
+      .put('/restaurants/openings')
+      .expect(404)
+      .expect({
+        statusCode: 404,
+        message: 'Cannot PUT /restaurants/openings',
+        error: 'Not Found',
       });
   });
 });

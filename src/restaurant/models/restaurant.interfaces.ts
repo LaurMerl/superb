@@ -1,3 +1,5 @@
+import { HoursMinutes } from 'src/utils/time-split';
+
 export interface IRestaurant {
   name: string;
   openingTimes: OpeningTimes;
@@ -5,21 +7,21 @@ export interface IRestaurant {
 }
 
 export type OpeningTimes = {
-  monday: Times | undefined;
-  tuesday: Times | undefined;
+  1: Times | undefined;
+  2: Times | undefined;
 };
 
 export type Tables = {
   tables: number;
 };
 
-type Times = {
+export type Times = {
   lunch: {
-    from: string;
-    to: string;
+    from: HoursMinutes;
+    to: HoursMinutes;
   };
   dinner: {
-    from: string;
-    to: string;
+    from: HoursMinutes;
+    to: HoursMinutes;
   };
 };

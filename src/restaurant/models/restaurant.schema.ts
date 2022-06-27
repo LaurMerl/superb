@@ -3,24 +3,48 @@ import { Document } from 'mongoose';
 import { OpeningTimes } from './restaurant.interfaces';
 
 const OpeningTimesSchema = {
-  monday: {
+  1: {
     lunch: {
-      from: String,
-      to: String,
+      from: {
+        hours: Number,
+        minutes: Number,
+      },
+      to: {
+        hours: Number,
+        minutes: Number,
+      },
     },
     dinner: {
-      from: String,
-      to: String,
+      from: {
+        hours: Number,
+        minutes: Number,
+      },
+      to: {
+        hours: Number,
+        minutes: Number,
+      },
     },
   },
-  tuesday: {
+  2: {
     lunch: {
-      from: String,
-      to: String,
+      from: {
+        hours: Number,
+        minutes: Number,
+      },
+      to: {
+        hours: Number,
+        minutes: Number,
+      },
     },
     dinner: {
-      from: String,
-      to: String,
+      from: {
+        hours: Number,
+        minutes: Number,
+      },
+      to: {
+        hours: Number,
+        minutes: Number,
+      },
     },
   },
 };

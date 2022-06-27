@@ -1,0 +1,31 @@
+[
+  {
+    "name": "Ristorante Bella Italia",
+    "openingTimes": {
+      "monday": {
+        "lunch": {
+          "from": {
+            "hours": 09,
+            "minutes": 00
+          },
+          "to": {
+            "hours": 11,
+            "minutes": 30
+          }
+        },
+        "dinner": {
+          "from": {
+            "hours": 17,
+            "minutes": 30
+          },
+          "to": {
+            "hours": 22,
+            "minutes": 00
+          }
+        }
+      },
+      "tuesday": "undefined"
+    },
+    "tables": 5
+  }
+]
