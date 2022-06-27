@@ -119,4 +119,38 @@ export class RestaurantService {
       reservationTime.minutes <= closingTime.minutes
     );
   }
+
+  // This is here for initialization purpose only
+  async _addRestaurant(): Promise<string> {
+    await this.restaurantModel.create({
+      name: 'Ristorante Bella Italia',
+      openingTimes: {
+        1: {
+          lunch: {
+            from: {
+              hours: 9,
+              minutes: 0,
+            },
+            to: {
+              hours: 11,
+              minutes: 30,
+            },
+          },
+          dinner: {
+            from: {
+              hours: 17,
+              minutes: 30,
+            },
+            to: {
+              hours: 22,
+              minutes: 0,
+            },
+          },
+        },
+        2: 'undefined',
+      },
+      tables: 5,
+    });
+    return 'Example inserted';
+  }
 }

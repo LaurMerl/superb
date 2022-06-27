@@ -9,7 +9,7 @@ import { RestaurantModule } from './restaurant/restaurant.module';
   imports: [
     RestaurantModule,
     ReservationModule,
-    MongooseModule.forRoot('mongodb://127.0.0.1:27017/local'),
+    MongooseModule.forRoot('mongodb://mongo:27017/local'),
   ],
   controllers: [BookingManagerController],
   providers: [BookingManagerService],

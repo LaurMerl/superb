@@ -1,0 +1,278 @@
+{
+	"info": {
+		"_postman_id": "db67cc26-5d16-455b-9ede-077f3b6906af",
+		"name": "superb",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "restaurant",
+			"item": [
+				{
+					"name": "openingTimes",
+					"item": [
+						{
+							"name": "openingTimes",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/restaurants/{{restaurantId}}/openings",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"restaurants",
+										"{{restaurantId}}",
+										"openings"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "openingTimes",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"1\": {\n        \"lunch\": {\n            \"from\": {\n                \"hours\": 10,\n                \"minutes\": 30\n            },\n            \"to\": {\n                \"hours\": 11,\n                \"minutes\": 30\n            }\n        },\n        \"dinner\": {\n            \"from\": {\n                \"hours\": 16,\n                \"minutes\": 30\n            },\n            \"to\": {\n                \"hours\": 22,\n                \"minutes\": 0\n            }\n        }\n    },\n    \"2\": \"undefined\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/restaurants/{{restaurantId}}/openings",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"restaurants",
+										"{{restaurantId}}",
+										"openings"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "tables",
+					"item": [
+						{
+							"name": "tables",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/restaurants/{{restaurantId}}/tables",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"restaurants",
+										"{{restaurantId}}",
+										"tables"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add-tables",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "numberOfNewTables",
+										"value": "2",
+										"type": "default",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"tables\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/restaurants/{{restaurantId}}/add-tables",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"restaurants",
+										"{{restaurantId}}",
+										"add-tables"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "remove-tables",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "numberOfNewTables",
+										"value": "2",
+										"type": "default",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"tables\": 7\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/restaurants/{{restaurantId}}/remove-tables",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"restaurants",
+										"{{restaurantId}}",
+										"remove-tables"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "reservation",
+			"item": [
+				{
+					"name": "reservation",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Laura Merlo\",\n    \"time\": \"Mon Jun 27 2022 11:30:11 GMT+0200 (Central European Summer Time)\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/reservation/{{restaurantId}}/reservation",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reservation",
+								"{{restaurantId}}",
+								"reservation"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "1.restaurants",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.json();",
+							"",
+							"pm.collectionVariables.set(\"restaurantId\", response.data[0]._id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/restaurants",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"restaurants"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "restaurantID",
+			"value": ""
+		},
+		{
+			"key": "savedData",
+			"value": ""
+		},
+		{
+			"key": "restaurantId",
+			"value": ""
+		}
+	]
+}
